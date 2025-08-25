@@ -1,14 +1,14 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
+#__pycache__/
+#*.py[cod]
 
 # Databases
-*.sqlite3
+#*.sqlite3
 
 # Django-specific files
-/media/
-/static/
+#/media/
+#/static/
 
 # IDE files
-.idea/
-.vscode/
+#.idea/
+#.vscode/
