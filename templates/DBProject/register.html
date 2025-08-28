@@ -7,8 +7,8 @@
         <div class="col-md-6">
             <div class="card shadow-lg p-3 mb-5 bg-body rounded">
                 <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Registrati</h2>
-                    <p class="text-center">Crea un nuovo account per accedere.</p>
+                    <h2 class="card-title text-center mb-4"><strong>Registrati</strong></h2>
+                    <h3 class="text-center">Crea un nuovo account per accedere.</h3>
                     <form method="post">
                         {% csrf_token %}
                         {{ form|crispy }}
