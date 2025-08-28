@@ -1,6 +1,6 @@
 ### Installazione
 
-1.  **Clona il repository:** https://github.com/edotammaro/webapp-database-exam
+1.  **Clona il repository:** https://github.com/edotammaro/NewRepDB
 
 2.  **Installa le dipendenze presenti nel file requirements.txt:**
    
