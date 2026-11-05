@@ -1,0 +1,3295 @@
+[
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-12T10:05:58.131Z",
+      "is_superuser": false,
+      "username": "PresidenteCalabria",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T08:58:17.147Z",
+      "tipo": "PRES_REGIONE",
+      "email": "presidente.calabria@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T13:30:26.158Z",
+      "is_superuser": false,
+      "username": "PresidenteSquadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T08:59:36.329Z",
+      "tipo": "PRES_SQUADRA",
+      "email": "presidente.squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-28T11:44:09.404Z",
+      "is_superuser": false,
+      "username": "Allenatore1Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T09:06:07.073Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore1squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-18T08:21:37.782Z",
+      "is_superuser": false,
+      "username": "Allenatore2Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T09:06:54.089Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore2squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Allenatore3Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T09:07:27.574Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore3squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T13:29:44.167Z",
+      "is_superuser": false,
+      "username": "AtletaM1Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T09:10:18.023Z",
+      "tipo": "ATLETA",
+      "email": "atletam1squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-20T10:53:04.040Z",
+      "is_superuser": false,
+      "username": "PresidenteCampania",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T10:08:26.924Z",
+      "tipo": "PRES_REGIONE",
+      "email": "presidente.campania@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaF2Squadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T11:07:55.614Z",
+      "tipo": "ATLETA",
+      "email": "atletaf2squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM2Squadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T11:08:12.047Z",
+      "tipo": "ATLETA",
+      "email": "atletam2squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM1Squadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T11:08:23.876Z",
+      "tipo": "ATLETA",
+      "email": "atletam1squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM3Squadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T11:08:32.850Z",
+      "tipo": "ATLETA",
+      "email": "atletam3squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaF3Squadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T11:08:47.023Z",
+      "tipo": "ATLETA",
+      "email": "atletaf3squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-28T11:46:17.954Z",
+      "is_superuser": false,
+      "username": "Allenatore2Squadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T11:11:32.978Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore2squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Allenatore3Squadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-12T11:11:54.156Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore3squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-25T19:39:50.950Z",
+      "is_superuser": false,
+      "username": "AtletaF1Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-13T15:49:17.422Z",
+      "tipo": "ATLETA",
+      "email": "atletaf1squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T12:35:13.707Z",
+      "is_superuser": false,
+      "username": "AtletaF2Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-13T15:50:24.233Z",
+      "tipo": "ATLETA",
+      "email": "atletaf2squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-28T11:45:52.746Z",
+      "is_superuser": false,
+      "username": "AtletaF3Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-13T15:50:36.599Z",
+      "tipo": "ATLETA",
+      "email": "atletaf3squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM2Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-13T15:50:47.000Z",
+      "tipo": "ATLETA",
+      "email": "atletam2squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-20T06:39:07.537Z",
+      "is_superuser": false,
+      "username": "AtletaM3Squadra1",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-13T15:51:01.513Z",
+      "tipo": "ATLETA",
+      "email": "atletam3squadra1@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-18T09:05:30.305Z",
+      "is_superuser": false,
+      "username": "PresidenteSquadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T09:05:14.635Z",
+      "tipo": "PRES_SQUADRA",
+      "email": "presidente.squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaF1Squadra2",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T09:07:13.412Z",
+      "tipo": "ATLETA",
+      "email": "atletaf1.squadra2@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-18T09:09:15.414Z",
+      "is_superuser": false,
+      "username": "AtletaF1Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T09:08:54.438Z",
+      "tipo": "ATLETA",
+      "email": "atletaf1.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T12:53:37.488Z",
+      "is_superuser": false,
+      "username": "PresidenteLazio",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:04:56.497Z",
+      "tipo": "PRES_REGIONE",
+      "email": "presidente.lazio@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T13:02:02.733Z",
+      "is_superuser": false,
+      "username": "PresidenteLiguria",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:05:20.544Z",
+      "tipo": "PRES_REGIONE",
+      "email": "presidente.liguria@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "PresidenteEmiliaromagna",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:05:48.045Z",
+      "tipo": "PRES_REGIONE",
+      "email": "presidente.emiliaromagna@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "PresidenteFriuli",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:06:16.964Z",
+      "tipo": "PRES_REGIONE",
+      "email": "presidente.friuliveneziagiulia@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-18T10:14:30.182Z",
+      "is_superuser": false,
+      "username": "PresidenteSquadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:10:10.691Z",
+      "tipo": "PRES_SQUADRA",
+      "email": "presidente.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "PresidenteSquadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:10:23.451Z",
+      "tipo": "PRES_SQUADRA",
+      "email": "presidente.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T12:54:48.935Z",
+      "is_superuser": false,
+      "username": "Allenatore1Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:10:52.946Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore1.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T12:01:08.591Z",
+      "is_superuser": false,
+      "username": "Allenatore2Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:11:02.161Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore2.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Allenatore3Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:11:10.663Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore3.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Allenatore3Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:11:20.731Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore3.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T12:59:15.428Z",
+      "is_superuser": false,
+      "username": "Allenatore2Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:11:30.507Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore2.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T12:59:00.420Z",
+      "is_superuser": false,
+      "username": "Allenatore1Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:11:38.557Z",
+      "tipo": "ALLENATORE",
+      "email": "allenatore1.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM1Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:12:06.564Z",
+      "tipo": "ATLETA",
+      "email": "atletam1.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": "2025-08-19T11:36:11.827Z",
+      "is_superuser": false,
+      "username": "AtletaM2Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:12:14.363Z",
+      "tipo": "ATLETA",
+      "email": "atletam2.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM3Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:12:23.398Z",
+      "tipo": "ATLETA",
+      "email": "atletam3.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaF3Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:12:32.669Z",
+      "tipo": "ATLETA",
+      "email": "atletaf3.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaF2Squadra3",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:12:41.170Z",
+      "tipo": "ATLETA",
+      "email": "atletaf2.squadra3@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaF1Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:13:10.001Z",
+      "tipo": "ATLETA",
+      "email": "atletaf1.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaF2Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:13:18.433Z",
+      "tipo": "ATLETA",
+      "email": "atletaf2.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaF3Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:13:28.040Z",
+      "tipo": "ATLETA",
+      "email": "atletaf3.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM3Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:13:38.062Z",
+      "tipo": "ATLETA",
+      "email": "atletam3.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM2Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:13:48.557Z",
+      "tipo": "ATLETA",
+      "email": "atletam2.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.utente",
+    "fields": {
+      "password": "!",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "AtletaM1Squadra4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2025-08-18T10:13:56.619Z",
+      "tipo": "ATLETA",
+      "email": "atletam1.squadra4@example.com",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "DBProject.regione",
+    "pk": 1,
+    "fields": {
+      "nome": "Abruzzo"
+    }
+  },
+  {
+    "model": "DBProject.regione",
+    "pk": 2,
+    "fields": {
+      "nome": "Basilicata"
+    }
+  },
+  {
+    "model": "DBProject.regione",
+    "pk": 3,
+    "fields": {
+      "nome": "Calabria"
+    }
+  },
+  {
+    "model": "DBProject.regione",
+    "pk": 4,
+    "fields": {
+      "nome": "Campania"
+    }
+  },
+  {
+    "model": "DBProject.regione",
+    "pk": 5,
+    "fields": {
+      "nome": "Emilia-Romagna"
+    }
+  },
+  {
+    "model": "DBProject.regione",
+    "pk": 6,
+    "fields": {
+      "nome": "Friuli-Venezia Giulia"
+    }
+  },
+  {
+    "model": "DBProject.regione",
+    "pk": 7,
+    "fields": {
+      "nome": "Lazio"
+    }
+  },
+  {
+    "model": "DBProject.regione",
+    "pk": 8,
+    "fields": {
+      "nome": "Liguria"
+    }
+  },
+  {
+    "model": "DBProject.squadra",
+    "pk": 1,
+    "fields": {
+      "nome": "Squadra1"
+    }
+  },
+  {
+    "model": "DBProject.squadra",
+    "pk": 2,
+    "fields": {
+      "nome": "Squadra2"
+    }
+  },
+  {
+    "model": "DBProject.squadra",
+    "pk": 3,
+    "fields": {
+      "nome": "Squadra3"
+    }
+  },
+  {
+    "model": "DBProject.squadra",
+    "pk": 4,
+    "fields": {
+      "nome": "Squadra4"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 61,
+    "fields": {
+      "nome": "100m piani"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 62,
+    "fields": {
+      "nome": "Salto in lungo"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 63,
+    "fields": {
+      "nome": "Salto in alto"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 64,
+    "fields": {
+      "nome": "Lancio del peso"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 65,
+    "fields": {
+      "nome": "200m piani"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 66,
+    "fields": {
+      "nome": "400m ostacoli"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 67,
+    "fields": {
+      "nome": "110m ostacoli"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 68,
+    "fields": {
+      "nome": "Salto triplo"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 69,
+    "fields": {
+      "nome": "Lancio del giavellotto"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 70,
+    "fields": {
+      "nome": "Lancio del disco"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 71,
+    "fields": {
+      "nome": "800m piani"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 72,
+    "fields": {
+      "nome": "1500m piani"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 73,
+    "fields": {
+      "nome": "3000m siepi"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 74,
+    "fields": {
+      "nome": "5000m piani"
+    }
+  },
+  {
+    "model": "DBProject.specialita",
+    "pk": 75,
+    "fields": {
+      "nome": "Staffetta 4x100m"
+    }
+  },
+  {
+    "model": "DBProject.presidenteregione",
+    "pk": 3,
+    "fields": {
+      "regione": 3
+    }
+  },
+  {
+    "model": "DBProject.presidenteregione",
+    "pk": 16,
+    "fields": {
+      "regione": 4
+    }
+  },
+  {
+    "model": "DBProject.presidenteregione",
+    "pk": 33,
+    "fields": {
+      "regione": 7
+    }
+  },
+  {
+    "model": "DBProject.presidenteregione",
+    "pk": 34,
+    "fields": {
+      "regione": 8
+    }
+  },
+  {
+    "model": "DBProject.presidenteregione",
+    "pk": 35,
+    "fields": {
+      "regione": 5
+    }
+  },
+  {
+    "model": "DBProject.presidenteregione",
+    "pk": 36,
+    "fields": {
+      "regione": 6
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 1,
+    "fields": {
+      "utente": [
+        "AtletaM1Squadra1"
+      ],
+      "squadra": 1,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 8,
+    "fields": {
+      "utente": [
+        "AtletaF2Squadra1"
+      ],
+      "squadra": 1,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 9,
+    "fields": {
+      "utente": [
+        "AtletaM3Squadra1"
+      ],
+      "squadra": 1,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 10,
+    "fields": {
+      "utente": [
+        "AtletaM2Squadra1"
+      ],
+      "squadra": 1,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 11,
+    "fields": {
+      "utente": [
+        "AtletaF1Squadra1"
+      ],
+      "squadra": 1,
+      "stato": "INFORTUNATO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 13,
+    "fields": {
+      "utente": [
+        "AtletaF3Squadra1"
+      ],
+      "squadra": 1,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 14,
+    "fields": {
+      "utente": [
+        "AtletaM1Squadra2"
+      ],
+      "squadra": 2,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 15,
+    "fields": {
+      "utente": [
+        "AtletaM2Squadra2"
+      ],
+      "squadra": 2,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 16,
+    "fields": {
+      "utente": [
+        "AtletaM3Squadra2"
+      ],
+      "squadra": 2,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 17,
+    "fields": {
+      "utente": [
+        "AtletaF2Squadra2"
+      ],
+      "squadra": 2,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 18,
+    "fields": {
+      "utente": [
+        "AtletaF3Squadra2"
+      ],
+      "squadra": 2,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 19,
+    "fields": {
+      "utente": [
+        "AtletaF1Squadra3"
+      ],
+      "squadra": 3,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 20,
+    "fields": {
+      "utente": [
+        "AtletaM1Squadra3"
+      ],
+      "squadra": 3,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 21,
+    "fields": {
+      "utente": [
+        "AtletaM3Squadra3"
+      ],
+      "squadra": 3,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 22,
+    "fields": {
+      "utente": [
+        "AtletaF3Squadra3"
+      ],
+      "squadra": 3,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 23,
+    "fields": {
+      "utente": [
+        "AtletaF2Squadra3"
+      ],
+      "squadra": 3,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.atleta",
+    "pk": 24,
+    "fields": {
+      "utente": [
+        "AtletaM2Squadra3"
+      ],
+      "squadra": 3,
+      "stato": "SANO"
+    }
+  },
+  {
+    "model": "DBProject.allenatore",
+    "pk": 1,
+    "fields": {
+      "utente": [
+        "Allenatore1Squadra1"
+      ],
+      "squadra": 1
+    }
+  },
+  {
+    "model": "DBProject.allenatore",
+    "pk": 2,
+    "fields": {
+      "utente": [
+        "Allenatore3Squadra1"
+      ],
+      "squadra": 1
+    }
+  },
+  {
+    "model": "DBProject.allenatore",
+    "pk": 3,
+    "fields": {
+      "utente": [
+        "Allenatore2Squadra1"
+      ],
+      "squadra": 1
+    }
+  },
+  {
+    "model": "DBProject.allenatore",
+    "pk": 7,
+    "fields": {
+      "utente": [
+        "Allenatore2Squadra2"
+      ],
+      "squadra": 2
+    }
+  },
+  {
+    "model": "DBProject.allenatore",
+    "pk": 8,
+    "fields": {
+      "utente": [
+        "Allenatore3Squadra2"
+      ],
+      "squadra": 2
+    }
+  },
+  {
+    "model": "DBProject.allenatore",
+    "pk": 9,
+    "fields": {
+      "utente": [
+        "Allenatore1Squadra3"
+      ],
+      "squadra": 3
+    }
+  },
+  {
+    "model": "DBProject.allenatore",
+    "pk": 10,
+    "fields": {
+      "utente": [
+        "Allenatore2Squadra3"
+      ],
+      "squadra": 3
+    }
+  },
+  {
+    "model": "DBProject.allenatore",
+    "pk": 11,
+    "fields": {
+      "utente": [
+        "Allenatore3Squadra3"
+      ],
+      "squadra": 3
+    }
+  },
+  {
+    "model": "DBProject.presidentesquadra",
+    "pk": 1,
+    "fields": {
+      "utente": [
+        "PresidenteSquadra1"
+      ],
+      "squadra": 1
+    }
+  },
+  {
+    "model": "DBProject.presidentesquadra",
+    "pk": 2,
+    "fields": {
+      "utente": [
+        "PresidenteSquadra2"
+      ],
+      "squadra": 2
+    }
+  },
+  {
+    "model": "DBProject.presidentesquadra",
+    "pk": 3,
+    "fields": {
+      "utente": [
+        "PresidenteSquadra3"
+      ],
+      "squadra": 3
+    }
+  },
+  {
+    "model": "DBProject.presidentesquadra",
+    "pk": 4,
+    "fields": {
+      "utente": [
+        "PresidenteSquadra4"
+      ],
+      "squadra": 4
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 3,
+    "fields": {
+      "presidente_regione": 3,
+      "luogo": "Crotone",
+      "data_inizio": "2025-09-14",
+      "data_fine": "2025-09-15"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 4,
+    "fields": {
+      "presidente_regione": 3,
+      "luogo": "Cosenza",
+      "data_inizio": "2025-11-01",
+      "data_fine": "2025-11-02"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 5,
+    "fields": {
+      "presidente_regione": 3,
+      "luogo": "Scalea",
+      "data_inizio": "2025-09-21",
+      "data_fine": "2025-09-22"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 6,
+    "fields": {
+      "presidente_regione": 16,
+      "luogo": "Stadio Maradona",
+      "data_inizio": "2025-08-31",
+      "data_fine": "2025-09-01"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 7,
+    "fields": {
+      "presidente_regione": 16,
+      "luogo": "Cava de Tirreni",
+      "data_inizio": "2025-09-28",
+      "data_fine": "2025-09-29"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 16,
+    "fields": {
+      "presidente_regione": 16,
+      "luogo": "San Marcellino",
+      "data_inizio": "2025-08-18",
+      "data_fine": "2025-08-19"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 17,
+    "fields": {
+      "presidente_regione": 16,
+      "luogo": "Cercola",
+      "data_inizio": "2025-08-18",
+      "data_fine": "2025-08-19"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 18,
+    "fields": {
+      "presidente_regione": 16,
+      "luogo": "Salerno",
+      "data_inizio": "2025-08-18",
+      "data_fine": "2025-08-19"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 20,
+    "fields": {
+      "presidente_regione": 33,
+      "luogo": "Roma",
+      "data_inizio": "2025-08-20",
+      "data_fine": "2025-08-21"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 21,
+    "fields": {
+      "presidente_regione": 33,
+      "luogo": "Rieti",
+      "data_inizio": "2025-08-23",
+      "data_fine": "2025-08-24"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 22,
+    "fields": {
+      "presidente_regione": 33,
+      "luogo": "Gaeta",
+      "data_inizio": "2025-09-27",
+      "data_fine": "2025-09-28"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 23,
+    "fields": {
+      "presidente_regione": 33,
+      "luogo": "Roma",
+      "data_inizio": "2025-10-26",
+      "data_fine": "2025-10-27"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 24,
+    "fields": {
+      "presidente_regione": 16,
+      "luogo": "Prova",
+      "data_inizio": "2025-08-15",
+      "data_fine": "2025-08-16"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 25,
+    "fields": {
+      "presidente_regione": 33,
+      "luogo": "Stadio dei Marmi",
+      "data_inizio": "2025-08-18",
+      "data_fine": "2025-08-19"
+    }
+  },
+  {
+    "model": "DBProject.gara",
+    "pk": 26,
+    "fields": {
+      "presidente_regione": 33,
+      "luogo": "Roma",
+      "data_inizio": "2025-08-18",
+      "data_fine": "2025-08-19"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 3,
+    "fields": {
+      "id_gara": 3,
+      "id_specialita": 62,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 4,
+    "fields": {
+      "id_gara": 4,
+      "id_specialita": 61,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 5,
+    "fields": {
+      "id_gara": 5,
+      "id_specialita": 71,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 6,
+    "fields": {
+      "id_gara": 6,
+      "id_specialita": 72,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 7,
+    "fields": {
+      "id_gara": 7,
+      "id_specialita": 62,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 8,
+    "fields": {
+      "id_gara": 7,
+      "id_specialita": 63,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 22,
+    "fields": {
+      "id_gara": 16,
+      "id_specialita": 61,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 23,
+    "fields": {
+      "id_gara": 16,
+      "id_specialita": 62,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 24,
+    "fields": {
+      "id_gara": 16,
+      "id_specialita": 64,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 25,
+    "fields": {
+      "id_gara": 17,
+      "id_specialita": 63,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 26,
+    "fields": {
+      "id_gara": 17,
+      "id_specialita": 64,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 27,
+    "fields": {
+      "id_gara": 17,
+      "id_specialita": 68,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 28,
+    "fields": {
+      "id_gara": 18,
+      "id_specialita": 69,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 30,
+    "fields": {
+      "id_gara": 20,
+      "id_specialita": 61,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 31,
+    "fields": {
+      "id_gara": 20,
+      "id_specialita": 62,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 32,
+    "fields": {
+      "id_gara": 20,
+      "id_specialita": 66,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 33,
+    "fields": {
+      "id_gara": 20,
+      "id_specialita": 72,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 34,
+    "fields": {
+      "id_gara": 20,
+      "id_specialita": 73,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 35,
+    "fields": {
+      "id_gara": 20,
+      "id_specialita": 74,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 36,
+    "fields": {
+      "id_gara": 21,
+      "id_specialita": 66,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 37,
+    "fields": {
+      "id_gara": 21,
+      "id_specialita": 67,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 38,
+    "fields": {
+      "id_gara": 21,
+      "id_specialita": 69,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 39,
+    "fields": {
+      "id_gara": 21,
+      "id_specialita": 71,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 40,
+    "fields": {
+      "id_gara": 21,
+      "id_specialita": 75,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 41,
+    "fields": {
+      "id_gara": 22,
+      "id_specialita": 64,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 42,
+    "fields": {
+      "id_gara": 22,
+      "id_specialita": 70,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 43,
+    "fields": {
+      "id_gara": 22,
+      "id_specialita": 71,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 44,
+    "fields": {
+      "id_gara": 22,
+      "id_specialita": 72,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 45,
+    "fields": {
+      "id_gara": 22,
+      "id_specialita": 75,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 46,
+    "fields": {
+      "id_gara": 23,
+      "id_specialita": 61,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 47,
+    "fields": {
+      "id_gara": 23,
+      "id_specialita": 65,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 48,
+    "fields": {
+      "id_gara": 23,
+      "id_specialita": 66,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 49,
+    "fields": {
+      "id_gara": 23,
+      "id_specialita": 67,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 50,
+    "fields": {
+      "id_gara": 23,
+      "id_specialita": 71,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 51,
+    "fields": {
+      "id_gara": 23,
+      "id_specialita": 75,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 52,
+    "fields": {
+      "id_gara": 24,
+      "id_specialita": 61,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 53,
+    "fields": {
+      "id_gara": 25,
+      "id_specialita": 61,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 54,
+    "fields": {
+      "id_gara": 25,
+      "id_specialita": 64,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 55,
+    "fields": {
+      "id_gara": 25,
+      "id_specialita": 65,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 56,
+    "fields": {
+      "id_gara": 25,
+      "id_specialita": 66,
+      "sesso": "M"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 57,
+    "fields": {
+      "id_gara": 26,
+      "id_specialita": 72,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 58,
+    "fields": {
+      "id_gara": 26,
+      "id_specialita": 73,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.garaspecialita",
+    "pk": 59,
+    "fields": {
+      "id_gara": 26,
+      "id_specialita": 74,
+      "sesso": "F"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 13,
+    "fields": {
+      "id_atleta": 1,
+      "id_gara": 6,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 18,
+    "fields": {
+      "id_atleta": 1,
+      "id_gara": 4,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 30,
+    "fields": {
+      "id_atleta": 14,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 31,
+    "fields": {
+      "id_atleta": 15,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 33,
+    "fields": {
+      "id_atleta": 14,
+      "id_gara": 16,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 34,
+    "fields": {
+      "id_atleta": 15,
+      "id_gara": 16,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 35,
+    "fields": {
+      "id_atleta": 16,
+      "id_gara": 16,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 36,
+    "fields": {
+      "id_atleta": 14,
+      "id_gara": 16,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 37,
+    "fields": {
+      "id_atleta": 15,
+      "id_gara": 16,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 38,
+    "fields": {
+      "id_atleta": 16,
+      "id_gara": 16,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 39,
+    "fields": {
+      "id_atleta": 17,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 40,
+    "fields": {
+      "id_atleta": 18,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 41,
+    "fields": {
+      "id_atleta": 17,
+      "id_gara": 17,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 42,
+    "fields": {
+      "id_atleta": 18,
+      "id_gara": 17,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 43,
+    "fields": {
+      "id_atleta": 17,
+      "id_gara": 17,
+      "id_specialita": 68,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 45,
+    "fields": {
+      "id_atleta": 14,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 46,
+    "fields": {
+      "id_atleta": 16,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 47,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 48,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 49,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 50,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 16,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 51,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 16,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 52,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 16,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 53,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 16,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 54,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 16,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 55,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 16,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 56,
+    "fields": {
+      "id_atleta": 19,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 57,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 58,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 59,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 17,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 60,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 4,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 61,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 4,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 62,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 63,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 64,
+    "fields": {
+      "id_atleta": 9,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": "10.54",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 66,
+    "fields": {
+      "id_atleta": 10,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 67,
+    "fields": {
+      "id_atleta": 9,
+      "id_gara": 16,
+      "id_specialita": 64,
+      "risultato": "5.94m",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 68,
+    "fields": {
+      "id_atleta": 10,
+      "id_gara": 16,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 69,
+    "fields": {
+      "id_atleta": 8,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 70,
+    "fields": {
+      "id_atleta": 11,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": "1.89",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 71,
+    "fields": {
+      "id_atleta": 13,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 72,
+    "fields": {
+      "id_atleta": 11,
+      "id_gara": 17,
+      "id_specialita": 68,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 73,
+    "fields": {
+      "id_atleta": 9,
+      "id_gara": 16,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 75,
+    "fields": {
+      "id_atleta": 13,
+      "id_gara": 23,
+      "id_specialita": 75,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 76,
+    "fields": {
+      "id_atleta": 8,
+      "id_gara": 17,
+      "id_specialita": 64,
+      "risultato": "5.91m",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 77,
+    "fields": {
+      "id_atleta": 13,
+      "id_gara": 17,
+      "id_specialita": 64,
+      "risultato": "Squalificata",
+      "stato_iscrizione": "SQUALIFICATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 78,
+    "fields": {
+      "id_atleta": 9,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": "Squalificato",
+      "stato_iscrizione": "SQUALIFICATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 79,
+    "fields": {
+      "id_atleta": 10,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 80,
+    "fields": {
+      "id_atleta": 10,
+      "id_gara": 20,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 81,
+    "fields": {
+      "id_atleta": 9,
+      "id_gara": 20,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 82,
+    "fields": {
+      "id_atleta": 10,
+      "id_gara": 16,
+      "id_specialita": 62,
+      "risultato": "6.76m",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 83,
+    "fields": {
+      "id_atleta": 9,
+      "id_gara": 20,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 84,
+    "fields": {
+      "id_atleta": 10,
+      "id_gara": 22,
+      "id_specialita": 75,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 85,
+    "fields": {
+      "id_atleta": 10,
+      "id_gara": 4,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 86,
+    "fields": {
+      "id_atleta": 14,
+      "id_gara": 20,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 87,
+    "fields": {
+      "id_atleta": 15,
+      "id_gara": 20,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 88,
+    "fields": {
+      "id_atleta": 15,
+      "id_gara": 20,
+      "id_specialita": 66,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 89,
+    "fields": {
+      "id_atleta": 16,
+      "id_gara": 20,
+      "id_specialita": 73,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 90,
+    "fields": {
+      "id_atleta": 14,
+      "id_gara": 20,
+      "id_specialita": 72,
+      "risultato": "4'24",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 91,
+    "fields": {
+      "id_atleta": 15,
+      "id_gara": 20,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 93,
+    "fields": {
+      "id_atleta": 1,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": "9.58",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 94,
+    "fields": {
+      "id_atleta": 1,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 95,
+    "fields": {
+      "id_atleta": 1,
+      "id_gara": 20,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 96,
+    "fields": {
+      "id_atleta": 1,
+      "id_gara": 22,
+      "id_specialita": 70,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 97,
+    "fields": {
+      "id_atleta": 1,
+      "id_gara": 22,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 98,
+    "fields": {
+      "id_atleta": 1,
+      "id_gara": 20,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 99,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 20,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 100,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 20,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 101,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 17,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 102,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 20,
+      "id_specialita": 62,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 103,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 17,
+      "id_specialita": 68,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 104,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 17,
+      "id_specialita": 68,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 105,
+    "fields": {
+      "id_atleta": 19,
+      "id_gara": 17,
+      "id_specialita": 64,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 106,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 20,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 107,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 20,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 108,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 20,
+      "id_specialita": 66,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 109,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 20,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 110,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 20,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 111,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 21,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 112,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 23,
+      "id_specialita": 75,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 113,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 23,
+      "id_specialita": 75,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 114,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 23,
+      "id_specialita": 71,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 115,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 23,
+      "id_specialita": 67,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 116,
+    "fields": {
+      "id_atleta": 19,
+      "id_gara": 23,
+      "id_specialita": 66,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 117,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 23,
+      "id_specialita": 66,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 118,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 21,
+      "id_specialita": 66,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 119,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 20,
+      "id_specialita": 73,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 120,
+    "fields": {
+      "id_atleta": 19,
+      "id_gara": 21,
+      "id_specialita": 75,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 121,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 24,
+      "id_specialita": 61,
+      "risultato": "11.9",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 122,
+    "fields": {
+      "id_atleta": 11,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 123,
+    "fields": {
+      "id_atleta": 13,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 125,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 25,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 126,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 25,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 127,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 25,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 128,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 25,
+      "id_specialita": 65,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 129,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 25,
+      "id_specialita": 65,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 130,
+    "fields": {
+      "id_atleta": 24,
+      "id_gara": 25,
+      "id_specialita": 65,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 131,
+    "fields": {
+      "id_atleta": 19,
+      "id_gara": 26,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 132,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 26,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 133,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 26,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 134,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 25,
+      "id_specialita": 66,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 135,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 25,
+      "id_specialita": 66,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 136,
+    "fields": {
+      "id_atleta": 20,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 137,
+    "fields": {
+      "id_atleta": 21,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 138,
+    "fields": {
+      "id_atleta": 19,
+      "id_gara": 26,
+      "id_specialita": 73,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 139,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 26,
+      "id_specialita": 73,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 140,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 26,
+      "id_specialita": 73,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 141,
+    "fields": {
+      "id_atleta": 19,
+      "id_gara": 26,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 142,
+    "fields": {
+      "id_atleta": 22,
+      "id_gara": 26,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 143,
+    "fields": {
+      "id_atleta": 23,
+      "id_gara": 26,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 144,
+    "fields": {
+      "id_atleta": 16,
+      "id_gara": 17,
+      "id_specialita": 63,
+      "risultato": "1.88m",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 145,
+    "fields": {
+      "id_atleta": 18,
+      "id_gara": 17,
+      "id_specialita": 68,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 146,
+    "fields": {
+      "id_atleta": 14,
+      "id_gara": 25,
+      "id_specialita": 65,
+      "risultato": "27.9",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 147,
+    "fields": {
+      "id_atleta": 15,
+      "id_gara": 25,
+      "id_specialita": 65,
+      "risultato": "26.88",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 148,
+    "fields": {
+      "id_atleta": 16,
+      "id_gara": 25,
+      "id_specialita": 65,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 149,
+    "fields": {
+      "id_atleta": 15,
+      "id_gara": 18,
+      "id_specialita": 69,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 150,
+    "fields": {
+      "id_atleta": 17,
+      "id_gara": 26,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 151,
+    "fields": {
+      "id_atleta": 18,
+      "id_gara": 26,
+      "id_specialita": 72,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 152,
+    "fields": {
+      "id_atleta": 17,
+      "id_gara": 26,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 153,
+    "fields": {
+      "id_atleta": 18,
+      "id_gara": 26,
+      "id_specialita": 74,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 154,
+    "fields": {
+      "id_atleta": 11,
+      "id_gara": 16,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 155,
+    "fields": {
+      "id_atleta": 17,
+      "id_gara": 26,
+      "id_specialita": 73,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 156,
+    "fields": {
+      "id_atleta": 18,
+      "id_gara": 26,
+      "id_specialita": 73,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 157,
+    "fields": {
+      "id_atleta": 14,
+      "id_gara": 25,
+      "id_specialita": 66,
+      "risultato": "1'04",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 158,
+    "fields": {
+      "id_atleta": 16,
+      "id_gara": 25,
+      "id_specialita": 66,
+      "risultato": "59.1",
+      "stato_iscrizione": "COMPLETATO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 159,
+    "fields": {
+      "id_atleta": 17,
+      "id_gara": 21,
+      "id_specialita": 66,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 160,
+    "fields": {
+      "id_atleta": 17,
+      "id_gara": 23,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  },
+  {
+    "model": "DBProject.partecipazione",
+    "pk": 161,
+    "fields": {
+      "id_atleta": 18,
+      "id_gara": 23,
+      "id_specialita": 61,
+      "risultato": null,
+      "stato_iscrizione": "ISCRITTO"
+    }
+  }
+]
