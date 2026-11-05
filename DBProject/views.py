@@ -161,30 +161,6 @@ def dashboard_view(request):
     return render(request, 'DBProject/dashboard.html')
 
 
-
-@login_required(login_url='/login/')
-@user_passes_test(is_atleta)
-def aggiorna_stato_atleta(request):
-    atleta = get_object_or_404(Atleta, utente=request.user)
-    if request.method == 'POST':
-        form_stato = StatoAtletaForm(request.POST, instance=atleta)
-        if form_stato.is_valid():
-            nuovo_stato = form_stato.cleaned_data['stato']
-            if nuovo_stato == 'INFORTUNATO':
-                Partecipazione.objects.filter(
-                    id_atleta=atleta,
-                    id_gara__data_fine__gte=now()
-                ).delete()
-                messages.success(request, "Il tuo stato è stato aggiornato a 'Infortunato'. Tutte le tue iscrizioni alle gare future sono state annullate.")
-            else:
-                messages.success(request, "Il tuo stato è stato aggiornato a 'Sano'.")
-            form_stato.save()
-        else:
-            messages.error(request, "Errore durante l'aggiornamento dello stato.")
-
-    # Reindirizza alla dashboard principale dopo l'aggiornamento
-    return redirect('dashboard_view')
-
 @login_required(login_url='/login/')
 @user_passes_test(is_pres_squadra)
 def dashboard_pres_squadra(request):
@@ -458,7 +434,7 @@ def aggiorna_stato_atleta(request):
         else:
             messages.error(request, "Errore durante l'aggiornamento dello stato.")
 
-    return redirect('dashboard_view')
+    return redirect('dashboard')
 
 
 @login_required(login_url='/login/')
@@ -525,30 +501,3 @@ def inserisci_risultato_view(request, id_partecipazione):
         'tipo_utente': 'ALLENATORE',
     }
     return render(request, 'DBProject/inserisci_risultato.html', context)
-
-
-@login_required(login_url='/login/')
-@user_passes_test(is_atleta)
-def cambia_stato_atleta_view(request):
-    atleta = get_object_or_404(Atleta, utente=request.user)
-
-    if request.method == 'POST':
-        nuovo_stato = request.POST.get('stato')
-        if nuovo_stato == 'infortunato':
-            # Se lo stato è "infortunato", cancella le iscrizioni future
-            Partecipazione.objects.filter(
-                id_atleta=atleta,
-                id_gara__data_inizio__gte=now()
-            ).delete()
-            atleta.stato = StatoAtleta.INFORTUNATO
-            messages.success(request,
-                             "Il tuo stato è stato aggiornato a 'Infortunato'. Tutte le tue iscrizioni alle gare future sono state annullate.")
-        elif nuovo_stato == 'attivo':
-            atleta.stato = StatoAtleta.ATTIVO
-            messages.success(request, "Il tuo stato è stato aggiornato a 'Attivo'.")
-        else:
-            messages.error(request, "Stato non valido.")
-
-        atleta.save()
-
-    return redirect('dashboard_atleta')
