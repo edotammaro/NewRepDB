@@ -64,7 +64,10 @@
                                                 {% for partecipazione in iscrizioni_per_specialita|get_item:specialita.pk %}
                                                     <li>
                                                         {{ partecipazione.id_atleta.utente.username }}
-                                                        <a href="{% url 'rimuovi_iscrizione' partecipazione.pk %}" class="btn btn-danger btn-sm" aria-label="Rimuovi Iscrizione">Rimuovi</a>
+                                                        <form action="{% url 'rimuovi_iscrizione' partecipazione.pk %}" method="post" class="d-inline">
+                                                            {% csrf_token %}
+                                                            <button type="submit" class="btn btn-danger btn-sm" aria-label="Rimuovi Iscrizione">Rimuovi</button>
+                                                        </form>
                                                     </li>
                                                 {% endfor %}
                                             </ul>

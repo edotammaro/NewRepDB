@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.core.exceptions import PermissionDenied
 from django.db import IntegrityError
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from .forms import RegistrazioneForm, LoginForm, AddAtletaForm, AddAllenatoreForm, GaraForm, IscrizioneGaraForm, \
     StatoAtletaForm, RisultatoForm
@@ -92,6 +94,7 @@ def login_view(request):
 
     return render(request, 'DBProject/login.html', {'form': form})
 
+@require_POST
 @login_required(login_url='/login/')
 def logout_view(request):
     logout(request)
@@ -287,22 +290,28 @@ def dashboard_allenatore(request):
 
 
 
+@require_POST
 @login_required(login_url='/login/')
 @user_passes_test(is_pres_squadra)
 def rimuovi_membro(request, membro_id, tipo_membro):
     squadra_utente = request.user.presidentesquadra.squadra
+    if squadra_utente is None:
+        # NRD-03: a president without a team must not match unassigned members.
+        raise PermissionDenied
 
     if tipo_membro == 'atleta':
         membro = get_object_or_404(Atleta, pk=membro_id, squadra=squadra_utente)
-        membro.delete()
-        messages.success(request, f"L'atleta '{membro.utente.username}' è stato rimosso dalla squadra.")
     elif tipo_membro == 'allenatore':
         membro = get_object_or_404(Allenatore, pk=membro_id, squadra=squadra_utente)
-        membro.delete()
-        messages.success(request, f"L'allenatore '{membro.utente.username}' è stato rimosso dalla squadra.")
     else:
         messages.error(request, "Tipo di membro non valido.")
+        return redirect('dashboard_pres_squadra')
 
+    # NRD-03: unlink from the team instead of deleting the profile (no cascade).
+    membro.squadra = None
+    membro.save(update_fields=['squadra'])
+    etichetta = "L'atleta" if tipo_membro == 'atleta' else "L'allenatore"
+    messages.success(request, f"{etichetta} '{membro.utente.username}' \u00e8 stato rimosso dalla squadra.")
     return redirect('dashboard_pres_squadra')
 
 
@@ -392,16 +401,18 @@ def iscrivi_atleti_gara(request, gara_specialita_id):
     return redirect('dashboard_allenatore')
 
 
+@require_POST
 @login_required(login_url='/login/')
 @user_passes_test(is_allenatore)
 def rimuovi_iscrizione(request, partecipazione_id):
     iscrizione = get_object_or_404(Partecipazione, pk=partecipazione_id)
 
-    # Check if the coach has permission to remove this registration
-    if iscrizione.id_atleta.squadra.allenatori.filter(utente=request.user).exists():
+    # NRD-10: the athlete may have no team (squadra is None).
+    squadra_atleta = iscrizione.id_atleta.squadra
+    if squadra_atleta is not None and squadra_atleta.allenatori.filter(utente=request.user).exists():
         atleta_nome = iscrizione.id_atleta.utente.username
         iscrizione.delete()
-        messages.success(request, f"L'atleta '{atleta_nome}' è stato rimosso dalla gara con successo.")
+        messages.success(request, f"L'atleta '{atleta_nome}' \u00e8 stato rimosso dalla gara con successo.")
     else:
         messages.error(request, "Non hai i permessi per rimuovere questa iscrizione.")
 
