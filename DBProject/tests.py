@@ -386,3 +386,26 @@ class NessunaSquadraTests(AzioniDistruttiveBase):
         self.assertEqual(risposta.status_code, 302)
         self.iscrizione.refresh_from_db()
         self.assertEqual(self.iscrizione.risultato, "10.50")
+
+
+class ImpostazioniHttpsTests(TestCase):
+    """NRD-05: with DJANGO_HTTPS=1 the deployment checks must report no warnings."""
+
+    def test_check_deploy_pulito_con_https_attivo(self):
+        import os
+        import secrets
+        import subprocess
+        import sys
+        from django.conf import settings
+
+        env = dict(os.environ)
+        env.pop("DJANGO_DEBUG", None)
+        env["DJANGO_SECRET_KEY"] = secrets.token_urlsafe(50)
+        env["DJANGO_ALLOWED_HOSTS"] = "example.org"
+        env["DJANGO_HTTPS"] = "1"
+        manage = os.path.join(str(settings.BASE_DIR), "manage.py")
+        risultato = subprocess.run(
+            [sys.executable, manage, "check", "--deploy", "--fail-level", "WARNING"],
+            env=env, capture_output=True, text=True,
+        )
+        self.assertEqual(risultato.returncode, 0, risultato.stdout + risultato.stderr)
