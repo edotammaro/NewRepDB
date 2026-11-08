@@ -326,3 +326,51 @@ class LockoutLoginTests(TestCase):
             self.tenta_con_xff("lock_vittima_6", self.SBAGLIATA, "10.0.0.1", "10.0.0.2")
         legittimo = self.tenta_con_xff("lock_vittima_6", PASSWORD, "10.0.0.2", "10.0.0.1")
         self.assertTrue(self.autenticato(legittimo))
+
+
+class NessunaSquadraTests(AzioniDistruttiveBase):
+    """NRD-15: a president or coach with squadra=None must not see or touch unassigned athletes."""
+
+    def setUp(self):
+        self.client.raise_request_exception = False
+
+    def presidente_orfano(self):
+        utente = crea_utente("pres_orfano_15", "PRES_SQUADRA")
+        PresidenteSquadra.objects.create(utente=utente, squadra=None)
+        return utente
+
+    def allenatore_orfano(self):
+        utente = crea_utente("coach_orfano_15", "ALLENATORE")
+        Allenatore.objects.create(utente=utente, squadra=None)
+        return utente
+
+    def iscrizione_svincolato(self):
+        return Partecipazione.objects.create(
+            id_atleta=self.svincolato, id_gara=self.gara, id_specialita=self.specialita
+        )
+
+    def test_dashboard_presidente_senza_squadra_e_negata(self):
+        self.client.force_login(self.presidente_orfano())
+        risposta = self.client.get(reverse("dashboard_pres_squadra"))
+        self.assertEqual(risposta.status_code, 403)
+
+    def test_dashboard_allenatore_senza_squadra_e_negata(self):
+        self.client.force_login(self.allenatore_orfano())
+        risposta = self.client.get(reverse("dashboard_allenatore"))
+        self.assertEqual(risposta.status_code, 403)
+
+    def test_allenatore_senza_squadra_non_apre_il_risultato_di_uno_svincolato(self):
+        iscrizione = self.iscrizione_svincolato()
+        self.client.force_login(self.allenatore_orfano())
+        risposta = self.client.get(reverse("inserisci_risultato", args=[iscrizione.pk]))
+        self.assertEqual(risposta.status_code, 403)
+
+    def test_allenatore_senza_squadra_non_modifica_il_risultato_di_uno_svincolato(self):
+        iscrizione = self.iscrizione_svincolato()
+        self.client.force_login(self.allenatore_orfano())
+        risposta = self.client.post(
+            reverse("inserisci_risultato", args=[iscrizione.pk]), {"risultato": "10.50"}
+        )
+        self.assertEqual(risposta.status_code, 403)
+        iscrizione.refresh_from_db()
+        self.assertIsNone(iscrizione.risultato)
