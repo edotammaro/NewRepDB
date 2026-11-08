@@ -25,22 +25,23 @@ Modalità: Analisi statica del codice sorgente, configurazioni e cronologia git 
 
 Regola di severità: **Critica** = utente non autenticato ottiene il privilegio massimo o accesso a dati di terzi. **Alta** = privilegio ottenuto con un'azione della vittima o con un prerequisito. **Media** = indebolisce una difesa o causa perdita di dati. **Bassa/Info** = igiene, robustezza o documentazione.
 
-| ID | Problema | Severità | CWE (verificata) |
-|---|---|---|---|
-| NRD-01 | Registrazione con ruolo a scelta e subentro in una squadra rimasta senza presidente | Critica | 266 |
-| NRD-02 | Rimozioni via GET (`rimuovi_membro`, `rimuovi_iscrizione`, logout) | Media | 352 |
-| NRD-03 | `rimuovi_membro`: `delete()` a cascata e caso `squadra=None` | Media | 863 (parte autorizzazione), nessuna per la cascata |
-| NRD-04 | Lockout in RAM, mai azzerato alla scadenza, DoS su account altrui | Media | 307, 645, 770 |
-| NRD-05 | Settings: SECRET_KEY hardcoded, DEBUG, hosts, cookie | Media | 321, 489, 614 |
-| NRD-06 | Registrazione non atomica, utenti orfani | Bassa | 460 |
-| NRD-07 | Repo: `.gitignore` spento, db/dump/.idea committati, SECRET_KEY nella storia | Bassa | 540, 321 |
-| NRD-08 | Risultati accettati su gare non concluse (il README dice il contrario) | Bassa | 841 |
-| NRD-09 | Iscrizione senza regole su gara conclusa o sesso | Bassa | 841 |
-| NRD-10 | Errore 500 con `squadra=None` in `rimuovi_iscrizione` | Bassa | 476 |
-| NRD-11 | Codice morto e route duplicate; `cambia_stato_atleta_view` raggiungibile: cancellava le iscrizioni future e poi andava in errore (risolto) | Bassa | 561 |
-| NRD-12 | Dipendenze con avvisi noti (Django 5.2.4, Pillow 11.3.0, sqlparse 0.5.3), `admin/` su percorso di default, requirements.txt in UTF-16 (convertito) | Media | 1395 (solo per le dipendenze; `admin/` e UTF-16 sono hardening, senza CWE) |
-| NRD-13 | README con affermazioni assolute ("immune", lockout "efficace") | Info | nessuna |
-| NRD-14 | Righe orfane nel database storico (chiavi esterne verso gare inesistenti) | Bassa | da verificare |
+| ID | Problema | Severità | CWE (verificata) | Stato |
+|---|---|---|---|---|
+| NRD-01 | Registrazione con ruolo a scelta e subentro in una squadra rimasta senza presidente | Critica | 266 | Risolto (`2fe3209` test, `f0bc0db` fix) |
+| NRD-02 | Rimozioni via GET (`rimuovi_membro`, `rimuovi_iscrizione`, logout) | Media | 352 | Risolto (`ccbbcc6` test, `dc11c86` fix) |
+| NRD-03 | `rimuovi_membro`: `delete()` a cascata e caso `squadra=None` | Media | 863 (parte autorizzazione), nessuna per la cascata | Risolto (`ccbbcc6`, `dc11c86`; riaggiunta membri `61103eb`, `380f099`) |
+| NRD-04 | Lockout in RAM, mai azzerato alla scadenza, DoS su account altrui | Media | 307, 645, 770 | Risolto (`214fd78` test, `76f27b4` fix, `37e2b7e` test su X-Forwarded-For) |
+| NRD-05 | Settings: SECRET_KEY hardcoded, DEBUG, hosts, cookie | Media | 321, 489, 614 | Parziale: SECRET_KEY, DEBUG e hosts da ambiente (`f40cea5`); cookie e HTTPS opt-in (`67c2d84` test, `37689bd` fix). Rotazione della chiave da fare al deploy |
+| NRD-06 | Registrazione non atomica, utenti orfani | Bassa | 460 | Risolto (`2fe3209` test, `f0bc0db` fix) |
+| NRD-07 | Repo: `.gitignore` spento, db/dump/.idea committati, SECRET_KEY nella storia | Bassa | 540, 321 | Parziale: `.gitignore` e file non più tracciati (`8e0fc06`, `e8408bb`). Storia git non riscritta |
+| NRD-08 | Risultati accettati su gare non concluse (il README dice il contrario) | Bassa | 841 | Aperto |
+| NRD-09 | Iscrizione senza regole su gara conclusa o sesso | Bassa | 841 | Aperto |
+| NRD-10 | Errore 500 con `squadra=None` in `rimuovi_iscrizione` | Bassa | 476 | Risolto (`ccbbcc6` test, `dc11c86` fix) |
+| NRD-11 | Codice morto e route duplicate; `cambia_stato_atleta_view` raggiungibile: cancellava le iscrizioni future e poi andava in errore (risolto) | Bassa | 561 | Risolto (`1ebf836`, `740b450`) |
+| NRD-12 | Dipendenze con avvisi noti (Django 5.2.4, Pillow 11.3.0, sqlparse 0.5.3), `admin/` su percorso di default, requirements.txt in UTF-16 (convertito) | Media | 1395 (solo per le dipendenze; `admin/` e UTF-16 sono hardening, senza CWE) | Parziale: Django 5.2.18 (`fb920d6`), sqlparse 0.6.0 (`e1f05c6`), Pillow rimosso perché non usato (`d624b6b`), requirements in UTF-8 (`55c2222`). Restano django-axes 9, Django 6.x e `admin/` |
+| NRD-13 | README con affermazioni assolute ("immune", lockout "efficace") | Info | nessuna | Aperto (README da riscrivere) |
+| NRD-14 | Righe orfane nel database storico (chiavi esterne verso gare inesistenti) | Bassa | da verificare | Non verificato |
+| NRD-15 | `squadra=None` non gestita: dashboard del presidente in errore 500; dashboard dell'allenatore con atleti, iscrizioni e risultati degli svincolati; scrittura di risultati di svincolati in `inserisci_risultato_view` perché `None != None` è falso | Media | da verificare | Risolto (`874f0af` test, `dac6765` fix, `193075c` test corretto) |
 
 ## 2. Dettaglio delle Ipotesi Verificate
 
@@ -641,3 +642,9 @@ if not DEBUG:
 - I dati nei database storici sono stati valutati solo tramite conteggi e struttura.
 - Severità e CWE sono valutazioni tentative. Le CWE sono state poi verificate su cwe.mitre.org il 07/11/2026 (vedi nota sotto); le severità restano tentative.
 - Verifica del 07/11/2026 su cwe.mitre.org: tutte le CWE del registro esistono; 269, 755 e 798 sono state sostituite perché sconsigliate o ammesse solo in casi limitati. Stato di mapping: Allowed per 266, 460, 321, 307, 352, 489, 614, 540, 561, 645, 770, 476, 841; Allowed-with-Review (uso limitato, da motivare) per 863, 754, 1395. Adattamenti deboli: 841 su NRD-08/09 (la CWE descrive una sequenza di azioni in una sessione, qui è una precondizione sullo stato della gara); 540 su NRD-07 vale per la SECRET_KEY nel codice, non per db e dump (dati, non codice sorgente); 561 su NRD-11 vale solo per le parti irraggiungibili, non per cambia_stato_atleta_view, che era raggiungibile e difettosa.
+- Aggiornamento dello stato dei fix dell'08/11/2026: la colonna Stato del registro si basa sui messaggi dei commit e sui test. Lo stato di NRD-07 non è stato riverificato sul repo.
+- NRD-15: severità tentativa, CWE da verificare su cwe.mitre.org. La prova del test rosso sulla scrittura dei risultati mostra un redirect 302 sul codice senza fix: da solo non prova la scrittura nel database, che si deduce dal codice (`None != None`) e dal test di controllo positivo.
+- NRD-04: i test mostrano che oggi `X-Forwarded-For` è ignorato (django-axes usa `REMOTE_ADDR` se django-ipware non è installato). Non è stato verificato che diventino rossi installando django-ipware.
+- NRD-05: il test HTTPS verifica che `check --deploy` sia pulito con `DJANGO_HTTPS=1`, non l'emissione reale dei cookie `Secure` né il redirect. `security.W005` e `security.W021` sono silenziati senza aver verificato che comparirebbero. `SECURE_PROXY_SSL_HEADER` non è impostato: dietro un proxy che termina TLS il redirect andrebbe in loop. La rotazione della `SECRET_KEY` è operativa e va fatta al deploy.
+- NRD-12: gli avvisi elencati da PyPI sono associati alla versione, non a un'analisi dell'uso nel codice. Pillow è stato rimosso perché non risulta usato (cercati `.py`, `.html`, `.txt`, `.md`; nessun pacchetto installato lo richiede); altri formati di file non sono stati cercati. django-axes 9.0.0 non è stato adottato perché uscita da meno di 14 giorni.
+- NRD-14: il database locale è stato ricreato vuoto; le righe orfane del database storico non sono state riverificate.
