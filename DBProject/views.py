@@ -155,6 +155,9 @@ def dashboard_pres_squadra(request):
     # Retrieve the president and their associated team
     presidente = get_object_or_404(PresidenteSquadra, utente=request.user)
     squadra = presidente.squadra
+    if squadra is None:
+        # NRD-15: a president without a team has no dashboard (was a 500).
+        raise PermissionDenied
     allenatori = squadra.allenatori.all()
     atleti = squadra.atleti.all()
 
@@ -228,6 +231,9 @@ logger = logging.getLogger(__name__)
 def dashboard_allenatore(request):
     allenatore = get_object_or_404(Allenatore, utente=request.user)
     squadra = allenatore.squadra
+    if squadra is None:
+        # NRD-15: filter(squadra=None) would list every unassigned athlete.
+        raise PermissionDenied
     atleti_squadra = Atleta.objects.filter(squadra=squadra)
 
     gare_passate = Gara.objects.filter(data_fine__lt=now()).order_by('data_fine')
@@ -472,6 +478,9 @@ def dashboard_pres_regione(request):
 @user_passes_test(is_allenatore)
 def inserisci_risultato_view(request, id_partecipazione):
     allenatore = get_object_or_404(Allenatore, utente=request.user)
+    if allenatore.squadra is None:
+        # NRD-15: None != None is False, so a team-less coach passed the check below.
+        raise PermissionDenied
     partecipazione = get_object_or_404(Partecipazione, pk=id_partecipazione)
 
     # Verify that the coach belongs to the same team as the athlete
