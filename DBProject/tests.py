@@ -369,8 +369,20 @@ class NessunaSquadraTests(AzioniDistruttiveBase):
         iscrizione = self.iscrizione_svincolato()
         self.client.force_login(self.allenatore_orfano())
         risposta = self.client.post(
-            reverse("inserisci_risultato", args=[iscrizione.pk]), {"risultato": "10.50"}
+            reverse("inserisci_risultato", args=[iscrizione.pk]),
+            {"risultato": "10.50", "stato_iscrizione": "ISCRITTO"},
         )
         self.assertEqual(risposta.status_code, 403)
         iscrizione.refresh_from_db()
         self.assertIsNone(iscrizione.risultato)
+
+    def test_allenatore_con_squadra_salva_il_risultato_del_proprio_atleta(self):
+        """Positive control: the same POST is valid, so the negative test above is meaningful."""
+        self.client.force_login(self.allenatore_user)
+        risposta = self.client.post(
+            reverse("inserisci_risultato", args=[self.iscrizione.pk]),
+            {"risultato": "10.50", "stato_iscrizione": "ISCRITTO"},
+        )
+        self.assertEqual(risposta.status_code, 302)
+        self.iscrizione.refresh_from_db()
+        self.assertEqual(self.iscrizione.risultato, "10.50")
