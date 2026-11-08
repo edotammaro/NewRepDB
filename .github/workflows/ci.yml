@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Dependency consistency
+        run: pip check
+      - name: Django system check
+        run: python manage.py check
+        env:
+          DJANGO_DEBUG: "1"
+      - name: Tests
+        run: python manage.py test DBProject -v 2
+        env:
+          DJANGO_DEBUG: "1"
