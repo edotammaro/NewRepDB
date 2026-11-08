@@ -300,3 +300,29 @@ class LockoutLoginTests(TestCase):
         self.assertTrue(self.autenticato(self.tenta("lock_vittima_4", PASSWORD, "10.0.0.1")))
         self.fallisci("lock_vittima_4", "10.0.0.1", volte=4)
         self.assertTrue(self.autenticato(self.tenta("lock_vittima_4", PASSWORD, "10.0.0.1")))
+
+    def tenta_con_xff(self, username, password, ip, xff):
+        client = Client()
+        client.post(
+            reverse("login"),
+            {"username": username, "password": password},
+            REMOTE_ADDR=ip,
+            HTTP_X_FORWARDED_FOR=xff,
+        )
+        return client
+
+    def test_x_forwarded_for_falsificato_non_aggira_il_blocco(self):
+        """An attacker rotating X-Forwarded-For must stay locked out (client IP = REMOTE_ADDR)."""
+        self.crea_account("lock_vittima_5")
+        for i in range(5):
+            self.tenta_con_xff("lock_vittima_5", self.SBAGLIATA, "10.0.0.1", "203.0.113." + str(i + 1))
+        attaccante = self.tenta_con_xff("lock_vittima_5", PASSWORD, "10.0.0.1", "203.0.113.99")
+        self.assertFalse(self.autenticato(attaccante))
+
+    def test_x_forwarded_for_dell_attaccante_non_blocca_un_altro_indirizzo(self):
+        """The header must not count: a victim with a different REMOTE_ADDR is not locked out."""
+        self.crea_account("lock_vittima_6")
+        for _ in range(5):
+            self.tenta_con_xff("lock_vittima_6", self.SBAGLIATA, "10.0.0.1", "10.0.0.2")
+        legittimo = self.tenta_con_xff("lock_vittima_6", PASSWORD, "10.0.0.2", "10.0.0.1")
+        self.assertTrue(self.autenticato(legittimo))
