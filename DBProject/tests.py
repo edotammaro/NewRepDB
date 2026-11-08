@@ -206,3 +206,50 @@ class RimozioneIscrizioneTests(AzioniDistruttiveBase):
         risposta = self.client.post(reverse("rimuovi_iscrizione", args=[iscrizione.pk]))
         self.assertNotEqual(risposta.status_code, 500)
         self.assertTrue(Partecipazione.objects.filter(pk=iscrizione.pk).exists())
+
+
+class RiaggiuntaMembriTests(AzioniDistruttiveBase):
+    """A member unlinked from a team can be added again; members of other teams cannot be taken."""
+
+    def aggiungi_atleta(self, utente):
+        return self.client.post(reverse("dashboard_pres_squadra"), {"add_atleta": "1", "utente": utente.pk})
+
+    def aggiungi_allenatore(self, utente):
+        return self.client.post(reverse("dashboard_pres_squadra"), {"add_allenatore": "1", "utente": utente.pk})
+
+    def test_atleta_rimosso_si_puo_riaggiungere(self):
+        self.client.force_login(self.presidente_user)
+        self.client.post(reverse("rimuovi_membro", args=[self.atleta.pk, "atleta"]))
+        self.aggiungi_atleta(self.atleta_user)
+        self.assertEqual(Atleta.objects.filter(utente=self.atleta_user).count(), 1)
+        self.assertEqual(Atleta.objects.get(utente=self.atleta_user).squadra, self.squadra)
+        self.assertTrue(Partecipazione.objects.filter(pk=self.iscrizione.pk).exists())
+
+    def test_allenatore_rimosso_si_puo_riaggiungere(self):
+        self.client.force_login(self.presidente_user)
+        self.client.post(reverse("rimuovi_membro", args=[self.allenatore.pk, "allenatore"]))
+        self.aggiungi_allenatore(self.allenatore_user)
+        self.assertEqual(Allenatore.objects.filter(utente=self.allenatore_user).count(), 1)
+        self.assertEqual(Allenatore.objects.get(utente=self.allenatore_user).squadra, self.squadra)
+
+    def test_utente_senza_profilo_si_aggiunge_come_atleta(self):
+        nuovo = crea_utente("atleta_nuovo", "ATLETA")
+        self.client.force_login(self.presidente_user)
+        self.aggiungi_atleta(nuovo)
+        self.assertEqual(Atleta.objects.get(utente=nuovo).squadra, self.squadra)
+
+    def test_non_si_porta_via_un_atleta_di_un_altra_squadra(self):
+        squadra_b = Squadra.objects.create(nome="Squadra B")
+        atleta_b = Atleta.objects.create(utente=crea_utente("atleta_b", "ATLETA"), squadra=squadra_b)
+        self.client.force_login(self.presidente_user)
+        self.aggiungi_atleta(atleta_b.utente)
+        atleta_b.refresh_from_db()
+        self.assertEqual(atleta_b.squadra, squadra_b)
+
+    def test_non_si_porta_via_un_allenatore_di_un_altra_squadra(self):
+        squadra_b = Squadra.objects.create(nome="Squadra B")
+        allenatore_b = Allenatore.objects.create(utente=crea_utente("coach_b", "ALLENATORE"), squadra=squadra_b)
+        self.client.force_login(self.presidente_user)
+        self.aggiungi_allenatore(allenatore_b.utente)
+        allenatore_b.refresh_from_db()
+        self.assertEqual(allenatore_b.squadra, squadra_b)
