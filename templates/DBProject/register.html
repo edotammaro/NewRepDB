@@ -23,28 +23,4 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const ruoloSelect = document.getElementById('id_tipo');
-        const regioneField = document.getElementById('div_id_regione');
-        const nomeSquadraField = document.getElementById('div_id_nome_squadra');
-
-        function toggleFields() {
-            if (ruoloSelect.value === 'PRES_REGIONE') {
-                regioneField.style.display = 'block';
-                nomeSquadraField.style.display = 'none';
-            } else if (ruoloSelect.value === 'PRES_SQUADRA') {
-                regioneField.style.display = 'none';
-                nomeSquadraField.style.display = 'block';
-            } else {
-                regioneField.style.display = 'none';
-                nomeSquadraField.style.display = 'none';
-            }
-        }
-
-        toggleFields();
-        ruoloSelect.addEventListener('change', toggleFields);
-    });
-</script>
-
 {% endblock %}

@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.db import IntegrityError
+from django.core.exceptions import PermissionDenied
+from django.db import IntegrityError, transaction
+from django.views.decorators.http import require_POST
 from django.contrib import messages
 from .forms import RegistrazioneForm, LoginForm, AddAtletaForm, AddAllenatoreForm, GaraForm, IscrizioneGaraForm, \
     StatoAtletaForm, RisultatoForm
@@ -92,6 +94,7 @@ def login_view(request):
 
     return render(request, 'DBProject/login.html', {'form': form})
 
+@require_POST
 @login_required(login_url='/login/')
 def logout_view(request):
     logout(request)
@@ -161,29 +164,19 @@ def dashboard_view(request):
     return render(request, 'DBProject/dashboard.html')
 
 
+def assegna_a_squadra(modello, utente, squadra):
+    """Add a user to a team without ever taking a member away from another team.
 
-@login_required(login_url='/login/')
-@user_passes_test(is_atleta)
-def aggiorna_stato_atleta(request):
-    atleta = get_object_or_404(Atleta, utente=request.user)
-    if request.method == 'POST':
-        form_stato = StatoAtletaForm(request.POST, instance=atleta)
-        if form_stato.is_valid():
-            nuovo_stato = form_stato.cleaned_data['stato']
-            if nuovo_stato == 'INFORTUNATO':
-                Partecipazione.objects.filter(
-                    id_atleta=atleta,
-                    id_gara__data_fine__gte=now()
-                ).delete()
-                messages.success(request, "Il tuo stato è stato aggiornato a 'Infortunato'. Tutte le tue iscrizioni alle gare future sono state annullate.")
-            else:
-                messages.success(request, "Il tuo stato è stato aggiornato a 'Sano'.")
-            form_stato.save()
-        else:
-            messages.error(request, "Errore durante l'aggiornamento dello stato.")
+    Creates the profile if the user has none; re-links an existing profile only
+    if it is currently without a team. Returns False otherwise.
+    """
+    with transaction.atomic():
+        profilo = modello.objects.filter(utente=utente).first()
+        if profilo is None:
+            modello.objects.create(utente=utente, squadra=squadra)
+            return True
+        return bool(modello.objects.filter(pk=profilo.pk, squadra__isnull=True).update(squadra=squadra))
 
-    # Reindirizza alla dashboard principale dopo l'aggiornamento
-    return redirect('dashboard_view')
 
 @login_required(login_url='/login/')
 @user_passes_test(is_pres_squadra)
@@ -212,13 +205,14 @@ def dashboard_pres_squadra(request):
         if 'add_atleta' in request.POST:
             add_atleta_form = AddAtletaForm(request.POST)
             if add_atleta_form.is_valid():
+                utente = add_atleta_form.cleaned_data['utente']
                 try:
-                    atleta = add_atleta_form.save(commit=False)
-                    atleta.squadra = squadra
-                    atleta.save()
-                    messages.success(request, f"Atleta '{atleta.utente.username}' aggiunto con successo.")
+                    if assegna_a_squadra(Atleta, utente, squadra):
+                        messages.success(request, f"Atleta '{utente.username}' aggiunto con successo.")
+                    else:
+                        messages.error(request, f"L'atleta '{utente.username}' fa gi\u00e0 parte di un'altra squadra.")
                 except IntegrityError:
-                    messages.error(request, "Questo utente è già un atleta e non può essere aggiunto nuovamente.")
+                    messages.error(request, "Impossibile aggiungere l'atleta. Riprova.")
             else:
                 messages.error(request, "Errore nel form per aggiungere un atleta.")
             return redirect('dashboard_pres_squadra')
@@ -227,13 +221,14 @@ def dashboard_pres_squadra(request):
         if 'add_allenatore' in request.POST:
             add_allenatore_form = AddAllenatoreForm(request.POST)
             if add_allenatore_form.is_valid():
+                utente = add_allenatore_form.cleaned_data['utente']
                 try:
-                    allenatore = add_allenatore_form.save(commit=False)
-                    allenatore.squadra = squadra
-                    allenatore.save()
-                    messages.success(request, f"Allenatore '{allenatore.utente.username}' aggiunto con successo.")
+                    if assegna_a_squadra(Allenatore, utente, squadra):
+                        messages.success(request, f"Allenatore '{utente.username}' aggiunto con successo.")
+                    else:
+                        messages.error(request, f"L'allenatore '{utente.username}' fa gi\u00e0 parte di un'altra squadra.")
                 except IntegrityError:
-                    messages.error(request, "Questo utente è già un allenatore e non può essere aggiunto nuovamente.")
+                    messages.error(request, "Impossibile aggiungere l'allenatore. Riprova.")
             else:
                 messages.error(request, "Errore nel form per aggiungere un allenatore.")
             return redirect('dashboard_pres_squadra')
@@ -311,22 +306,28 @@ def dashboard_allenatore(request):
 
 
 
+@require_POST
 @login_required(login_url='/login/')
 @user_passes_test(is_pres_squadra)
 def rimuovi_membro(request, membro_id, tipo_membro):
     squadra_utente = request.user.presidentesquadra.squadra
+    if squadra_utente is None:
+        # NRD-03: a president without a team must not match unassigned members.
+        raise PermissionDenied
 
     if tipo_membro == 'atleta':
         membro = get_object_or_404(Atleta, pk=membro_id, squadra=squadra_utente)
-        membro.delete()
-        messages.success(request, f"L'atleta '{membro.utente.username}' è stato rimosso dalla squadra.")
     elif tipo_membro == 'allenatore':
         membro = get_object_or_404(Allenatore, pk=membro_id, squadra=squadra_utente)
-        membro.delete()
-        messages.success(request, f"L'allenatore '{membro.utente.username}' è stato rimosso dalla squadra.")
     else:
         messages.error(request, "Tipo di membro non valido.")
+        return redirect('dashboard_pres_squadra')
 
+    # NRD-03: unlink from the team instead of deleting the profile (no cascade).
+    membro.squadra = None
+    membro.save(update_fields=['squadra'])
+    etichetta = "L'atleta" if tipo_membro == 'atleta' else "L'allenatore"
+    messages.success(request, f"{etichetta} '{membro.utente.username}' \u00e8 stato rimosso dalla squadra.")
     return redirect('dashboard_pres_squadra')
 
 
@@ -416,16 +417,18 @@ def iscrivi_atleti_gara(request, gara_specialita_id):
     return redirect('dashboard_allenatore')
 
 
+@require_POST
 @login_required(login_url='/login/')
 @user_passes_test(is_allenatore)
 def rimuovi_iscrizione(request, partecipazione_id):
     iscrizione = get_object_or_404(Partecipazione, pk=partecipazione_id)
 
-    # Check if the coach has permission to remove this registration
-    if iscrizione.id_atleta.squadra.allenatori.filter(utente=request.user).exists():
+    # NRD-10: the athlete may have no team (squadra is None).
+    squadra_atleta = iscrizione.id_atleta.squadra
+    if squadra_atleta is not None and squadra_atleta.allenatori.filter(utente=request.user).exists():
         atleta_nome = iscrizione.id_atleta.utente.username
         iscrizione.delete()
-        messages.success(request, f"L'atleta '{atleta_nome}' è stato rimosso dalla gara con successo.")
+        messages.success(request, f"L'atleta '{atleta_nome}' \u00e8 stato rimosso dalla gara con successo.")
     else:
         messages.error(request, "Non hai i permessi per rimuovere questa iscrizione.")
 
@@ -458,7 +461,7 @@ def aggiorna_stato_atleta(request):
         else:
             messages.error(request, "Errore durante l'aggiornamento dello stato.")
 
-    return redirect('dashboard_view')
+    return redirect('dashboard')
 
 
 @login_required(login_url='/login/')
@@ -525,30 +528,3 @@ def inserisci_risultato_view(request, id_partecipazione):
         'tipo_utente': 'ALLENATORE',
     }
     return render(request, 'DBProject/inserisci_risultato.html', context)
-
-
-@login_required(login_url='/login/')
-@user_passes_test(is_atleta)
-def cambia_stato_atleta_view(request):
-    atleta = get_object_or_404(Atleta, utente=request.user)
-
-    if request.method == 'POST':
-        nuovo_stato = request.POST.get('stato')
-        if nuovo_stato == 'infortunato':
-            # Se lo stato è "infortunato", cancella le iscrizioni future
-            Partecipazione.objects.filter(
-                id_atleta=atleta,
-                id_gara__data_inizio__gte=now()
-            ).delete()
-            atleta.stato = StatoAtleta.INFORTUNATO
-            messages.success(request,
-                             "Il tuo stato è stato aggiornato a 'Infortunato'. Tutte le tue iscrizioni alle gare future sono state annullate.")
-        elif nuovo_stato == 'attivo':
-            atleta.stato = StatoAtleta.ATTIVO
-            messages.success(request, "Il tuo stato è stato aggiornato a 'Attivo'.")
-        else:
-            messages.error(request, "Stato non valido.")
-
-        atleta.save()
-
-    return redirect('dashboard_atleta')

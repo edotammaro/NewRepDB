@@ -16,8 +16,5 @@ urlpatterns = [
     path('dashboard/allenatore/iscrivi-atleti/<int:gara_specialita_id>/', views.iscrivi_atleti_gara, name='iscrivi_atleti_gara'),
     path('dashboard/allenatore/rimuovi-iscrizione/<int:partecipazione_id>/', views.rimuovi_iscrizione, name='rimuovi_iscrizione'),
     path('dashboard/atleta/aggiorna-stato/', views.aggiorna_stato_atleta, name='aggiorna_stato_atleta'),
-    path('dashboard/atleta/aggiorna-stato/', views.aggiorna_stato_atleta, name='aggiorna_stato_atleta'),
-    path('dashboard/', views.dashboard_view, name='dashboard_view'),
-    path('dashboard/atleta/cambia-stato/', views.cambia_stato_atleta_view, name='cambia_stato_atleta'),
     path('dashboard/allenatore/inserisci-risultato/<int:id_partecipazione>/', views.inserisci_risultato_view, name='inserisci_risultato'),
 ]

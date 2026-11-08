@@ -1,14 +1,26 @@
-# Byte-compiled / optimized / DLL files
-#__pycache__/
-#*.py[cod]
+@"
+# Python
+__pycache__/
+*.py[cod]
 
-# Databases
-#*.sqlite3
+# Ambienti virtuali e segreti
+.venv/
+venv/
+.env
 
-# Django-specific files
-#/media/
-#/static/
+# Database locali e dump
+*.sqlite3
+*.sqlite
+dump.sql
 
-# IDE files
-#.idea/
-#.vscode/
+# IDE
+.idea/
+.vscode/
+
+# Django
+staticfiles/
+media/
+
+# Log
+*.log
+"@ | Set-Content .gitignore -Encoding ascii
