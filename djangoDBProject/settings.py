@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/#database
 
 from pathlib import Path
 import os
+from datetime import timedelta
 
 from django.core.exceptions import ImproperlyConfigured
 from django.core.management.utils import get_random_secret_key
@@ -59,7 +60,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'DBProject',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'axes',
 ]
 
 
@@ -71,6 +73,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "axes.middleware.AxesMiddleware",
 ]
 
 ROOT_URLCONF = "djangoDBProject.urls"
@@ -152,6 +155,20 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # RIGA AGGIUNTA PER USARE IL MODELLO UTENTE PERSONALIZZATO
 AUTH_USER_MODEL = 'DBProject.Utente'
+
+
+# Brute-force protection with django-axes (NRD-04).
+# AxesStandaloneBackend must be the first authentication backend.
+AUTHENTICATION_BACKENDS = [
+    "axes.backends.AxesStandaloneBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
+# Lock out the combination of username and client IP, so an attacker cannot
+# lock a legitimate user out by failing logins from a different address.
+AXES_LOCKOUT_PARAMETERS = [["username", "ip_address"]]
+AXES_FAILURE_LIMIT = 5
+AXES_COOLOFF_TIME = timedelta(minutes=5)
+AXES_RESET_ON_SUCCESS = True
 
 
 STATICFILES_DIRS = [
