@@ -171,6 +171,27 @@ AXES_COOLOFF_TIME = timedelta(minutes=5)
 AXES_RESET_ON_SUCCESS = True
 
 
+# Cookie and transport hardening (NRD-05).
+# HttpOnly and SameSite are always on. The HTTPS-only settings follow
+# DJANGO_HTTPS=1 so that local development and the tests keep working over HTTP.
+# SECURE_PROXY_SSL_HEADER is deliberately NOT set: behind a proxy that terminates
+# TLS, configure it only if the proxy overwrites that header on every request.
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = "Lax"
+CSRF_COOKIE_SAMESITE = "Lax"
+
+HTTPS = env_bool("DJANGO_HTTPS", False)
+if HTTPS:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    # HSTS is hard to undo: start with one hour and raise it only after a stable rollout.
+    SECURE_HSTS_SECONDS = 3600
+    # includeSubDomains (W005) and preload (W021) are left off on purpose:
+    # both affect domains this project does not control.
+    SILENCED_SYSTEM_CHECKS = ["security.W005", "security.W021"]
+
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'DBProject/static'),
 ]
