@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from django.test import TestCase, TransactionTestCase
+from django.test import Client, TestCase, TransactionTestCase
 from django.urls import reverse
 from django.utils.timezone import now
 
@@ -253,3 +253,50 @@ class RiaggiuntaMembriTests(AzioniDistruttiveBase):
         self.aggiungi_allenatore(allenatore_b.utente)
         allenatore_b.refresh_from_db()
         self.assertEqual(allenatore_b.squadra, squadra_b)
+
+
+class LockoutLoginTests(TestCase):
+    """NRD-04: the failed-login lockout must not let an attacker lock other people out."""
+
+    SBAGLIATA = "password-sbagliata"
+
+    def crea_account(self, nome):
+        return crea_utente(nome, "ATLETA")
+
+    def tenta(self, username, password, ip):
+        client = Client()
+        client.post(reverse("login"), {"username": username, "password": password}, REMOTE_ADDR=ip)
+        return client
+
+    def autenticato(self, client):
+        return "_auth_user_id" in client.session
+
+    def fallisci(self, username, ip, volte=5):
+        for _ in range(volte):
+            self.tenta(username, self.SBAGLIATA, ip)
+
+    def test_un_account_non_si_blocca_da_un_altro_indirizzo(self):
+        self.crea_account("lock_vittima_1")
+        self.fallisci("lock_vittima_1", "10.0.0.1")
+        legittimo = self.tenta("lock_vittima_1", PASSWORD, "10.0.0.2")
+        self.assertTrue(self.autenticato(legittimo))
+
+    def test_stesso_indirizzo_e_account_restano_bloccati(self):
+        self.crea_account("lock_vittima_2")
+        self.fallisci("lock_vittima_2", "10.0.0.1")
+        attaccante = self.tenta("lock_vittima_2", PASSWORD, "10.0.0.1")
+        self.assertFalse(self.autenticato(attaccante))
+
+    def test_altro_account_dallo_stesso_indirizzo_non_e_bloccato(self):
+        self.crea_account("lock_vittima_3")
+        self.crea_account("lock_altro_3")
+        self.fallisci("lock_vittima_3", "10.0.0.1")
+        altro = self.tenta("lock_altro_3", PASSWORD, "10.0.0.1")
+        self.assertTrue(self.autenticato(altro))
+
+    def test_un_accesso_riuscito_azzera_i_fallimenti(self):
+        self.crea_account("lock_vittima_4")
+        self.fallisci("lock_vittima_4", "10.0.0.1", volte=4)
+        self.assertTrue(self.autenticato(self.tenta("lock_vittima_4", PASSWORD, "10.0.0.1")))
+        self.fallisci("lock_vittima_4", "10.0.0.1", volte=4)
+        self.assertTrue(self.autenticato(self.tenta("lock_vittima_4", PASSWORD, "10.0.0.1")))
