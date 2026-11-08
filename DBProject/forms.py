@@ -3,6 +3,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.db import transaction
+from django.db.models import Q
 from .models import Utente, Atleta, Allenatore, PresidenteSquadra, PresidenteRegione, Gara, Partecipazione, Squadra, \
     Regione, Specialita, GaraSpecialita
 
@@ -53,36 +54,26 @@ class StatoAtletaForm(forms.ModelForm):
         }
 
 
-class AddAtletaForm(forms.ModelForm):
+class AddAtletaForm(forms.Form):
+    """Users who can join a team: no athlete profile yet, or a profile not linked to any team."""
     utente = forms.ModelChoiceField(
-        queryset=Utente.objects.filter(tipo='ATLETA', atleta__isnull=True),
+        queryset=Utente.objects.filter(tipo='ATLETA').filter(
+            Q(atleta__isnull=True) | Q(atleta__squadra__isnull=True)
+        ),
         label="Seleziona un atleta",
-        widget=forms.Select(attrs={'class': 'form-control'})
+        widget=forms.Select(attrs={'class': 'form-control'}),
     )
 
-    class Meta:
-        model = Atleta
-        fields = ['utente', 'squadra']
-        widgets = {
-            'squadra': forms.HiddenInput(),
-        }
 
-
-class AddAllenatoreForm(forms.ModelForm):
+class AddAllenatoreForm(forms.Form):
+    """Users who can join a team: no coach profile yet, or a profile not linked to any team."""
     utente = forms.ModelChoiceField(
-        queryset=Utente.objects.filter(tipo='ALLENATORE', allenatore__isnull=True),
+        queryset=Utente.objects.filter(tipo='ALLENATORE').filter(
+            Q(allenatore__isnull=True) | Q(allenatore__squadra__isnull=True)
+        ),
         label="Seleziona un allenatore",
         widget=forms.Select(attrs={'class': 'form-control'}),
-        required=False
     )
-
-    class Meta:
-        model = Allenatore
-        fields = ['utente', 'squadra']
-        widgets = {
-            'utente': forms.Select(attrs={'class': 'form-control'}),
-            'squadra': forms.HiddenInput(),
-        }
 
 
 class GaraForm(forms.ModelForm):

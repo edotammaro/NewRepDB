@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.exceptions import PermissionDenied
-from django.db import IntegrityError
+from django.db import IntegrityError, transaction
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from .forms import RegistrazioneForm, LoginForm, AddAtletaForm, AddAllenatoreForm, GaraForm, IscrizioneGaraForm, \
@@ -164,6 +164,20 @@ def dashboard_view(request):
     return render(request, 'DBProject/dashboard.html')
 
 
+def assegna_a_squadra(modello, utente, squadra):
+    """Add a user to a team without ever taking a member away from another team.
+
+    Creates the profile if the user has none; re-links an existing profile only
+    if it is currently without a team. Returns False otherwise.
+    """
+    with transaction.atomic():
+        profilo = modello.objects.filter(utente=utente).first()
+        if profilo is None:
+            modello.objects.create(utente=utente, squadra=squadra)
+            return True
+        return bool(modello.objects.filter(pk=profilo.pk, squadra__isnull=True).update(squadra=squadra))
+
+
 @login_required(login_url='/login/')
 @user_passes_test(is_pres_squadra)
 def dashboard_pres_squadra(request):
@@ -191,13 +205,14 @@ def dashboard_pres_squadra(request):
         if 'add_atleta' in request.POST:
             add_atleta_form = AddAtletaForm(request.POST)
             if add_atleta_form.is_valid():
+                utente = add_atleta_form.cleaned_data['utente']
                 try:
-                    atleta = add_atleta_form.save(commit=False)
-                    atleta.squadra = squadra
-                    atleta.save()
-                    messages.success(request, f"Atleta '{atleta.utente.username}' aggiunto con successo.")
+                    if assegna_a_squadra(Atleta, utente, squadra):
+                        messages.success(request, f"Atleta '{utente.username}' aggiunto con successo.")
+                    else:
+                        messages.error(request, f"L'atleta '{utente.username}' fa gi\u00e0 parte di un'altra squadra.")
                 except IntegrityError:
-                    messages.error(request, "Questo utente è già un atleta e non può essere aggiunto nuovamente.")
+                    messages.error(request, "Impossibile aggiungere l'atleta. Riprova.")
             else:
                 messages.error(request, "Errore nel form per aggiungere un atleta.")
             return redirect('dashboard_pres_squadra')
@@ -206,13 +221,14 @@ def dashboard_pres_squadra(request):
         if 'add_allenatore' in request.POST:
             add_allenatore_form = AddAllenatoreForm(request.POST)
             if add_allenatore_form.is_valid():
+                utente = add_allenatore_form.cleaned_data['utente']
                 try:
-                    allenatore = add_allenatore_form.save(commit=False)
-                    allenatore.squadra = squadra
-                    allenatore.save()
-                    messages.success(request, f"Allenatore '{allenatore.utente.username}' aggiunto con successo.")
+                    if assegna_a_squadra(Allenatore, utente, squadra):
+                        messages.success(request, f"Allenatore '{utente.username}' aggiunto con successo.")
+                    else:
+                        messages.error(request, f"L'allenatore '{utente.username}' fa gi\u00e0 parte di un'altra squadra.")
                 except IntegrityError:
-                    messages.error(request, "Questo utente è già un allenatore e non può essere aggiunto nuovamente.")
+                    messages.error(request, "Impossibile aggiungere l'allenatore. Riprova.")
             else:
                 messages.error(request, "Errore nel form per aggiungere un allenatore.")
             return redirect('dashboard_pres_squadra')
